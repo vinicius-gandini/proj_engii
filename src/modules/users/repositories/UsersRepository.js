@@ -4,12 +4,22 @@ class UsersRepository {
   async add(data) {
     const user = await mongo
       .collection('users')
-      .insert(data)
+      .insertOne(data)
       .then(result => {
         return result;
       });
 
-    return user;
+    const userFormatted = {
+      // eslint-disable-next-line
+      id: user.ops[0]._id,
+      ...user.ops[0],
+    };
+
+    delete userFormatted.password;
+    // eslint-disable-next-line
+    delete userFormatted._id;
+
+    return userFormatted;
   }
 
   async findByEmail(email) {

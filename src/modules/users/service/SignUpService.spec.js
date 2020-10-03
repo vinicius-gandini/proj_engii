@@ -1,3 +1,4 @@
+const HashProvider = require('../providers/HashProvider/model/HashProviderModel');
 const UsersRepositoryFake = require('../repositories/UsersRepositoryFake');
 const SignUpService = require('./SignUpService');
 
@@ -10,10 +11,11 @@ describe('SignUpService', () => {
     };
 
     const usersRepositoryFake = new UsersRepositoryFake();
-    const signUpService = new SignUpService(usersRepositoryFake);
+    const hashProvider = new HashProvider();
+    const signUpService = new SignUpService(usersRepositoryFake, hashProvider);
 
     const user = await signUpService.execute(data);
 
-    expect(user.ops[0]).toHaveProperty('_id');
+    expect(user).toHaveProperty('_id');
   });
 });

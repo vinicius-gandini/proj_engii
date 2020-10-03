@@ -1,12 +1,8 @@
 class UsersRepositoryFake {
   async add(data) {
     const user = {
-      ops: [
-        {
-          _id: 'any_id',
-          ...data,
-        },
-      ],
+      _id: 'any_id',
+      ...data,
     };
 
     return user;
