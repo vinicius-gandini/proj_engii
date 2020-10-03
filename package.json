@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon ./src/infra/http/server.js",
-    "jest": "jest --init",
-    "test": "jest"
+    "test": "jest --watchAll",
+    "test:commit": "jest --passWithNoTests --findRelatedTests"
   },
   "husky": {
     "hooks": {
@@ -16,10 +16,12 @@
   "lint-staged": {
     "*.js": [
       "eslint --fix",
-      "git add"
+      "git add",
+      "yarn test:commit"
     ]
   },
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "express": "^4.17.1",
     "mongoose": "^5.10.3"
   },
