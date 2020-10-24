@@ -9,6 +9,7 @@ class Bcrypt {
 
   async compare(password, passwordHashed) {
     const passwordMatch = await bcrypt.compare(password, passwordHashed);
+
     return passwordMatch;
   }
 }

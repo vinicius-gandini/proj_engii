@@ -1,5 +1,5 @@
-const HashProvider = require('../providers/HashProvider/model/HashProviderModel');
 const UsersRepositoryFake = require('../repositories/UsersRepositoryFake');
+const HashProvider = require('../providers/HashProvider/model/HashProviderModel');
 const SignInService = require('./SignInService');
 
 describe('SignInService', () => {
@@ -21,8 +21,9 @@ describe('SignInService', () => {
   test('should be error message if email not exist', async () => {
     const data = {
       email: 'not_exist@email.com',
-      passowrd: 'any_password',
+      password: 'any_password',
     };
+
     const usersRepositoryFake = new UsersRepositoryFake();
     const hashProvider = new HashProvider();
     const signInService = new SignInService(usersRepositoryFake, hashProvider);
@@ -35,8 +36,9 @@ describe('SignInService', () => {
   test('should be error message if password not match', async () => {
     const data = {
       email: 'exist@email.com',
-      passowrd: 'invalid_password',
+      password: 'invalid_password',
     };
+
     const usersRepositoryFake = new UsersRepositoryFake();
     const hashProvider = new HashProvider();
     const signInService = new SignInService(usersRepositoryFake, hashProvider);

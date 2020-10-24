@@ -33,7 +33,7 @@ class UsersRepository {
       ...user,
     };
 
-    delete userFormatted.password;
+    delete userFormatted._id;
     return userFormatted;
   }
 }

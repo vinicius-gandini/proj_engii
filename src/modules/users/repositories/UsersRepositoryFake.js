@@ -1,7 +1,7 @@
 class UsersRepositoryFake {
   async add(data) {
     const user = {
-      _id: 'any_id',
+      id: 'any_id',
       ...data,
     };
 
