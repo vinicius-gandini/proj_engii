@@ -4,7 +4,7 @@ const FinanceRepositoryFake = require('../repositories/FinanceRepositoryFake');
 describe('MovimentRegister', () => {
   test('should be able register new finance moviment', async () => {
     const data = {
-      title: 'Cafe',
+      title: 'Café',
       type: 'saída',
       date: '31/10/2020',
       frequency: 'Recorrente',
